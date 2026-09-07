@@ -1,0 +1,3 @@
+O processo TDD com testes funcionais e de unidade envolve escrever um teste funcional de alto nivel, 
+descer para o ciclo de testes de unidade e desenvolvimento (escrever teste, ver falhar, codar, ver passar), 
+refatorar o codigo mantendo a seguranca, e repetir ate que todo o fluxo do teste funcional seja atendido.
