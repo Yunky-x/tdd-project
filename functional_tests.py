@@ -34,10 +34,21 @@ class NewVisitorTest(unittest.TestCase):
         table = self.browser.find_element_by_id('id_list_table')
         rows = table.find_elements_by_tag_name('tr')
         self.assertTrue(
-            any(row.text == '1: Estudar testes funcionais' for row in rows)
+            any(row.text == '1: Estudar testes funcionais' for row in rows),
+            "New to-do item did not appear in table"
         )
 
-        # (Resto dos comentários e a chamada unittest.main() no final...)
+        # Ainda existe uma caixa de texto convidando para adicionar outro item
+        # Ela digita: "Estudar testes de unidade"
+
+        # A página atualiza novamente, e agora mostra ambos os itens na sua lista
+
+        # Maria se pergunta se o site vai lembrar da sua lista. Então, ela verifica que
+        # o site gerou uma URL única para ela -- existe uma explicação sobre essa feature
+
+        # Ela visita a URL: a sua lista TODO ainda está armazenada
+
+        # Satisfeita, ela vai dormir
 
 if __name__ == '__main__':
     unittest.main()
