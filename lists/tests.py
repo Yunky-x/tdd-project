@@ -24,8 +24,11 @@ class HomePageTest(TestCase):
         self.client.get('/')
         self.assertEqual(Item.objects.count(), 0)
 
-
 class ListViewTest(TestCase):
+
+    def test_uses_list_template(self):
+        response = self.client.get('/lists/the-only-list-in-the-world/')
+        self.assertTemplateUsed(response, 'list.html')
 
     def test_displays_all_items(self):
         Item.objects.create(text='itemey 1')
@@ -33,10 +36,8 @@ class ListViewTest(TestCase):
 
         response = self.client.get('/lists/the-only-list-in-the-world/')
 
-        # Usamos assertContains em vez de assertIn
         self.assertContains(response, 'itemey 1')
         self.assertContains(response, 'itemey 2')
-
 
 class ItemModelTest(TestCase):
 
